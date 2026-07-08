@@ -60,11 +60,11 @@ const App = () => {
                   <img src={coin.image}
                   className='w-6 h-6'
                   alt="Bitcoin" />
-                  
+                  {coin.name} ({coin.symbol.toUpperCase()})
                 </td>
-                <td className="px-4 py-2"></td>
-                <td className="px-4 py-2">$820,000,000,000</td>
-                <td className="px-4 py-2 text-green-400">+2.5%</td>
+                <td className="px-4 py-2">${coin.current_price.toLocaleString()}</td>
+                <td className="px-4 py-2">${coin.market_cap.toLocaleString()}</td>
+                <td className={`px-4 py-2  ${coin.price_change_percentage_24 > 0?'text-green-400':'text-red-400'}`}>{coin.price_change_percentage_24h}</td>
               </tr>
               ))}
             </tbody>
